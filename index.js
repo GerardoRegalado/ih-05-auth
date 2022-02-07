@@ -10,6 +10,7 @@ const hbs			= require("hbs")
 const connectDB		= require("./config/db")
 
 
+
 // 2. MIDDLEWARES
 require("dotenv").config()
 
@@ -20,6 +21,7 @@ app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
 
 app.use(express.urlencoded({ extended: true }))
+app.use("/auth", require("./routes/auth"))
 
 
 // 3. RUTEO
