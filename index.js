@@ -8,24 +8,29 @@ const app			= express()
 const hbs			= require("hbs")
 
 const connectDB		= require("./config/db")
+const sessionManager = require("./config/session")
 
 
 
 // 2. MIDDLEWARES
 require("dotenv").config()
 
+sessionManager(app)
+
 connectDB()
+
 
 app.use(express.static("public"))
 app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
 
 app.use(express.urlencoded({ extended: true }))
-app.use("/auth", require("./routes/auth"))
+
 
 
 // 3. RUTEO
 app.use("/", require("./routes/index"))
+app.use("/auth", require("./routes/auth"))
 
 
 

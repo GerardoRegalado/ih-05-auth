@@ -1,23 +1,27 @@
-//importaciones
+// ./routes/auth.js
 
-const express = require("express")
-const router = express.Router()
+// 1. IMPORTACIONES
+const express		= require("express")
+const router		= express.Router()
 
+const authController		= require("./../controllers/authController")
 
-const authController = require("../controllers/authController.js")
-
-//ruteo
-
-//A .sign up
+// 2. ROUTER
+// A1. SIGNUP - OBTENER PÁGINA
 router.get("/register", authController.register)
 
-//A2 enviar formulario
+// A2. SIGNUP - ENVIAR FORMULARIO DE SIGNUP
 router.post("/register", authController.registerForm)
 
-//login
+// B1. LOGIN - OBTENER PÁGINA
 router.get("/login", authController.login)
 
+// B2. LOGIN - ENVIAR FORMULARIO DE LOGIN
+router.post("/login", authController.loginForm)
 
-//exportacion
 
+
+
+
+// 3. EXPORTACIÓN
 module.exports = router
