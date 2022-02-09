@@ -10,10 +10,9 @@ exports.getHome = (req,res) => {
 exports.getProfile = (req,res) => {
     console.log(req.session)
 
-    const username = req.session.currentUser.username || ""
-	const email = req.session.currentUser.email || ""
-	const msg = req.session.currentUser.msg || ""             //este es otro tipo de desestructuracion
-    
+    const username = currentUser ? currentUser.username : ""
+    const email = currentUser ? currentUser.email : ""
+    const msg = currentUser ? currentUser.msg : ""
     
 
     //const { username, email, msg } = req.session.currentUser
