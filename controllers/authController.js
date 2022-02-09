@@ -133,3 +133,22 @@ exports.loginForm = async (req, res) => {
 	// 5. REDIRECCIÓN AL PROFILE
     return res.redirect("/profile")   //primero es esto antes que la gestion de sesion
 }
+
+
+
+
+
+exports.logout = async (req, res) => {
+
+	req.session.destroy((error) => {
+
+		if(error){
+			console.log(error)
+			return
+		}
+
+		res.redirect("/")
+
+
+	})
+}
